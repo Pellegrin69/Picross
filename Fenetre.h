@@ -5,8 +5,16 @@
 #ifndef PICROSS_FENETRE_H
 #define PICROSS_FENETRE_H
 
+#include <SFML/Graphics.hpp>
+#include <iostream>
 
-class Fenetre {
+class Fenetre : public sf::RenderWindow {
+
+public:
+
+    Fenetre(int width, int height);
+
+    void run();
 
 };
 

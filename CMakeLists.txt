@@ -6,5 +6,5 @@ set(CMAKE_CXX_STANDARD 14)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
-add_executable(Picross main.cpp)
+add_executable(Picross main.cpp Fenetre.cpp Fenetre.h)
 target_link_libraries(Picross ${CONAN_LIBS})

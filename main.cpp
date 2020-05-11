@@ -1,6 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "Picross.h"
+#include "Fenetre.h"
 
 int main() {
     const int WIDTH = 512;

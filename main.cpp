@@ -1,5 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Picross.h"
 
 int main() {
     const int WIDTH = 512;

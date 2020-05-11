@@ -5,8 +5,16 @@
 #ifndef PICROSS_GRILLE_H
 #define PICROSS_GRILLE_H
 
+#include <SFML/Graphics.hpp>
 
-class Grille {
+class Grille : sf::Drawable {
+
+private:
+    void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
+
+protected:
+
+public:
 
 };
 

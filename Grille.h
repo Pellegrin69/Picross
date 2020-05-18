@@ -14,7 +14,7 @@ class Grille : public sf::Drawable {
 public:
     Grille(int caseParCote, int tailleCoteCase);
 
-    int convertirGrilleEnPixels(int caseX, int caseY) const;
+    sf::Vector2i convertirGrilleEnPixels(int caseX, int caseY) const;
 
     sf::Vector2i convertirPixelsEnGrille(int coordoneesX, int coordoneesY) const;
 

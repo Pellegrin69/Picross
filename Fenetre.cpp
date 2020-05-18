@@ -20,7 +20,13 @@ void Fenetre::run() {
             }
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
                 sf::Vector2i position = sf::Mouse::getPosition(*this);
-                std::cout << "Coordonnees : " << grille.convertirPixelsEnGrille(position.x, position.y).x << "/"
+                std::cout << "Coordonnees : "
+                          << grille.convertirGrilleEnPixels(grille.convertirPixelsEnGrille(position.x, position.y).x,
+                                                            grille.convertirPixelsEnGrille(position.x, position.y).y).x
+                          << " / "
+                          << grille.convertirGrilleEnPixels(grille.convertirPixelsEnGrille(position.x, position.y).x,
+                                                            grille.convertirPixelsEnGrille(position.x, position.y).y).y
+                          << " Cases : " << grille.convertirPixelsEnGrille(position.x, position.y).x << "/"
                           << grille.convertirPixelsEnGrille(position.x, position.y).y << " : (" << position.x << " , "
                           << position.y << ")" << std::endl;
             }

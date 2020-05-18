@@ -20,8 +20,9 @@ void Grille::draw(sf::RenderTarget &target, sf::RenderStates states) const {
         }
 }
 
-int Grille::convertirGrilleEnPixels(int caseX, int caseY) const {
-    return caseX * m_tailleCoteCase, caseY * m_tailleCoteCase;
+sf::Vector2i Grille::convertirGrilleEnPixels(int caseX, int caseY) const {
+    sf::Vector2i coordonnees(caseX * m_tailleCoteCase, caseY * m_tailleCoteCase);
+    return coordonnees;
 }
 
 sf::Vector2i Grille::convertirPixelsEnGrille(int coordoneesX, int coordoneesY) const {

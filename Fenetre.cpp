@@ -7,7 +7,7 @@
 
 
 Fenetre::Fenetre(int width, int height) : sf::RenderWindow(sf::VideoMode(width, height), "Le Double P-cross"),
-                                          grille(10, 50), m_width(width), m_height(height) {
+                                          grille(10, 47), m_width(width), m_height(height) {
 }
 
 void Fenetre::run() {

@@ -15,7 +15,7 @@ void Grille::draw(sf::RenderTarget &target, sf::RenderStates states) const {
             cases.setOutlineThickness(3);
             cases.setOutlineColor(sf::Color(75, 75, 75));
             cases.setFillColor(sf::Color::White);
-            cases.setPosition(i * m_tailleCoteCase, j * m_tailleCoteCase);
+            cases.setPosition(i * m_tailleCoteCase + 3, j * m_tailleCoteCase + 3);
             target.draw(cases);
         }
 }

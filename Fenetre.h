@@ -13,6 +13,8 @@ class Fenetre : public sf::RenderWindow {
 
 protected:
     Grille grille;
+    int m_width;
+    int m_height;
 
 public:
 

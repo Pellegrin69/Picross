@@ -5,8 +5,9 @@
 #include "Fenetre.h"
 #include <SFML/Graphics.hpp>
 
+
 Fenetre::Fenetre(int width, int height) : sf::RenderWindow(sf::VideoMode(width, height), "Le Double P-cross"),
-                                          grille(10), m_width(width), m_height(height) {
+                                          grille(10, 50), m_width(width), m_height(height) {
 }
 
 void Fenetre::run() {
@@ -19,7 +20,9 @@ void Fenetre::run() {
             }
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
                 sf::Vector2i position = sf::Mouse::getPosition(*this);
-                std::cout << "(" << position.x << " , " << position.y << ")" << std::endl;
+                std::cout << "Coordonnees : " << grille.convertirPixelsEnGrille(position.x, position.y).x << "/"
+                          << grille.convertirPixelsEnGrille(position.x, position.y).y << " : (" << position.x << " , "
+                          << position.y << ")" << std::endl;
             }
             if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
                 std::cout << "neah" << std::endl;
@@ -29,7 +32,6 @@ void Fenetre::run() {
         draw(grille);
         display();
     }
-
-    std::cout << "J'ai quitte la fenetre proprement !" <<
-              std::endl;
+    std::cout << "J'ai quitte la fenetre proprement !" << std::endl;
 }
+

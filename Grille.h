@@ -12,13 +12,24 @@
 class Grille : public sf::Drawable {
 
 public:
-    Grille(int caseParCote);
+    Grille(int caseParCote, int tailleCoteCase);
+
+    int convertirGrilleEnPixels(int caseX, int caseY) const;
+
+    sf::Vector2i convertirPixelsEnGrille(int coordoneesX, int coordoneesY) const;
+
+    //case_x = int(x // taille_cote_case)
+    //case_y_tmp = int(y // taille_cote_case)
+    //case_y = nb_cases_verticales - case_y_tmp - 1
+    //return case_x, case_y
 
 
 private:
     void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
     int m_caseParCote;
+
+    int m_tailleCoteCase;
 
 
 };

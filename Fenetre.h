@@ -7,8 +7,12 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Grille.h"
 
 class Fenetre : public sf::RenderWindow {
+
+protected:
+    Grille grille;
 
 public:
 

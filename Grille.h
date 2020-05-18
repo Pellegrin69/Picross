@@ -6,15 +6,20 @@
 #define PICROSS_GRILLE_H
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include <string>
 
-class Grille : sf::Drawable {
+class Grille : public sf::Drawable {
+
+public:
+    Grille(int caseParCote);
+
 
 private:
     void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
-protected:
+    int m_caseParCote;
 
-public:
 
 };
 

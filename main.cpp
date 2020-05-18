@@ -1,10 +1,12 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Fenetre.h"
+#include "Grille.h"
 
 int main() {
-    Fenetre fenetre(600,600);
+    Fenetre fenetre(600, 600);
     fenetre.run();
+
 
     //const int WIDTH = 512;
     //const int HEIGHT = 512;

@@ -4,7 +4,7 @@
 #include "Grille.h"
 
 int main() {
-    Fenetre fenetre(600, 600);
+    Fenetre fenetre(800, 800);
     fenetre.run();
 
 

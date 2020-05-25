@@ -6,8 +6,7 @@
 #include <SFML/Graphics.hpp>
 
 
-Fenetre::Fenetre(int width, int height) : sf::RenderWindow(sf::VideoMode(width, height),
-                                                           "Le Double P-cross"),
+Fenetre::Fenetre(int width, int height) : sf::RenderWindow(sf::VideoMode(width, height), "Le Double P-cross"),
                                           grille(10, 50), m_width(width), m_height(height) {
 }
 
@@ -22,7 +21,6 @@ void Fenetre::run() {
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
                 sf::Vector2i position = sf::Mouse::getPosition(*this);
 
-                //float pixelEnGrille = ((grille.convertirPixelsEnGrille(position.x, position.y).x),(grille.convertirPixelsEnGrille(position.x, position.y).y);
                 auto pixelEnGrille = grille.convertirGrilleEnPixels
                         ((grille.convertirPixelsEnGrille(position.x, position.y).x),
                          (grille.convertirPixelsEnGrille(position.x, position.y).y));

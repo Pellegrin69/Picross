@@ -18,7 +18,7 @@ public:
 
     sf::Vector2i convertirPixelsEnGrille(int coordoneesX, int coordoneesY) const;
 
-private:
+protected:
     void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
     int m_caseParCote;

@@ -8,13 +8,9 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Grille.h"
+#include "Logique.h"
 
 class Fenetre : public sf::RenderWindow {
-
-protected:
-    Grille grille;
-    int m_width;
-    int m_height;
 
 public:
 
@@ -22,6 +18,10 @@ public:
 
     void run();
 
+protected:
+    Grille m_grille;
+    int m_width;
+    int m_height;
 
 };
 

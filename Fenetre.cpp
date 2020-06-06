@@ -7,7 +7,7 @@
 
 
 Fenetre::Fenetre(int width, int height) : sf::RenderWindow(sf::VideoMode(width, height), "Le Double P-cross"),
-                                          grille(10, 50), m_width(width), m_height(height) {
+                                          m_grille(10, 50), m_width(width), m_height(height) {
 }
 
 void Fenetre::run() {
@@ -21,16 +21,16 @@ void Fenetre::run() {
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
                 sf::Vector2i position = sf::Mouse::getPosition(*this);
 
-                auto pixelEnGrille = grille.convertirGrilleEnPixels
-                        ((grille.convertirPixelsEnGrille(position.x, position.y).x),
-                         (grille.convertirPixelsEnGrille(position.x, position.y).y));
+                auto pixelEnGrille = m_grille.convertirGrilleEnPixels
+                        ((m_grille.convertirPixelsEnGrille(position.x, position.y).x),
+                         (m_grille.convertirPixelsEnGrille(position.x, position.y).y));
                 float caseCliqueX = pixelEnGrille.x;
                 float caseCliqueY = pixelEnGrille.y;
                 sf::Vector2f caseClique(caseCliqueX, caseCliqueY);
 
                 std::cout << "Coordonnees : " << pixelEnGrille.x << " / " << pixelEnGrille.y << std::endl
-                          << "Cases : " << grille.convertirPixelsEnGrille(position.x, position.y).x
-                          << " / " << grille.convertirPixelsEnGrille(position.x, position.y).y << std::endl;
+                          << "Cases : " << m_grille.convertirPixelsEnGrille(position.x, position.y).x
+                          << " / " << m_grille.convertirPixelsEnGrille(position.x, position.y).y << std::endl;
             }
 
             if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
@@ -38,7 +38,7 @@ void Fenetre::run() {
             }
         }
         clear();
-        draw(grille);
+        draw(m_grille);
         display();
     }
 

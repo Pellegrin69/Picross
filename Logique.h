@@ -8,6 +8,13 @@
 
 class Logique {
 
+public:
+    Logique();
+
+    void recupGrilleSolution();
+
+protected:
+
 };
 
 

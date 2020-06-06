@@ -19,41 +19,43 @@ Logique::Logique() {
 
 }
 
-void Logique::recupGrilleSolution() {
+std::vector<std::vector<int>> Logique::recupGrilleSolution() {
     std::string const cheminFichier("C:/Users/pellegrin.pierre/CLionProjects/Picross/solutionCarre.txt");
     std::ifstream monFlux(cheminFichier.c_str());
-    int grille[10][10];
+    std::vector<std::vector<int>> grilleSolution;
     if (monFlux) {
         char carac;
-        int i, j = 0;
+        int i = 0;
+        int j = 0;
+        std::vector<int> ligneSolution;
         while (monFlux.get(carac)) {
+            std::cout << j << " " << i << std::endl;
             if (carac == '0') {
-                std::cout << "zero" << std::endl;
-                grille[j][i] = 0;
+                ligneSolution.push_back(0);
+                i++;
+                if (i > 9) {
+                    grilleSolution.push_back(ligneSolution);
+                    ligneSolution.clear();
+                    j++;
+                    i = 0;
+                }
 
             } else if (carac == '1') {
-                std::cout << "un" << std::endl;
-                grille[j][i] = 1;
-
-            } else if (carac == '2') {
-                std::cout << "deux" << std::endl;
-                grille[j][i] = 2;
-
-            }
-            i++;
-            if (i > 9){
-                j++;
-                i = 0;
+                ligneSolution.push_back(1);
+                i++;
+                if (i > 9) {
+                    grilleSolution.push_back(ligneSolution);
+                    ligneSolution.clear();
+                    j++;
+                    i = 0;
+                }
             }
         }
-
-
-    } else {
-        std::cout << "Une erreur s'est produite : impossible d'ouvrir le fichier" << std::endl;
-    }
-    for (int j = 0; j < 10; ++j) {
-        for (int i = 0; i < 10; ++i) {
-            std::cout << grille[j][i] << std::endl;
+    } else { std::cout << "Une erreur s'est produite : impossible d'ouvrir le fichier" << std::endl; }
+    for (int i = 0; i < grilleSolution.size(); i++) {
+        for (int j = 0; j < grilleSolution.size(); j++) {
+            std::cout << grilleSolution[i][j] << std::endl;
         }
     }
+    return grilleSolution;
 }

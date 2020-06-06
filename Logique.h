@@ -5,13 +5,14 @@
 #ifndef PICROSS_LOGIQUE_H
 #define PICROSS_LOGIQUE_H
 
+#include <vector>
 
 class Logique {
 
 public:
     Logique();
 
-    void recupGrilleSolution();
+    std::vector<std::vector<int>> recupGrilleSolution();
 
 protected:
 

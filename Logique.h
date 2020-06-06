@@ -10,9 +10,10 @@
 class Logique {
 
 public:
+
     Logique();
 
-    std::vector<std::vector<int>> recupGrilleSolution();
+    static std::vector<std::vector<int>> recupGrilleSolution();
 
 protected:
 

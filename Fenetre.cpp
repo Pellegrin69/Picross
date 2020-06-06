@@ -3,6 +3,7 @@
 //
 
 #include "Fenetre.h"
+#include "Logique.h"
 #include <SFML/Graphics.hpp>
 
 
@@ -24,13 +25,19 @@ void Fenetre::run() {
                 auto pixelEnGrille = m_grille.convertirGrilleEnPixels
                         ((m_grille.convertirPixelsEnGrille(position.x, position.y).x),
                          (m_grille.convertirPixelsEnGrille(position.x, position.y).y));
-                float caseCliqueX = pixelEnGrille.x;
-                float caseCliqueY = pixelEnGrille.y;
-                sf::Vector2f caseClique(caseCliqueX, caseCliqueY);
 
-                std::cout << "Coordonnees : " << pixelEnGrille.x << " / " << pixelEnGrille.y << std::endl
-                          << "Cases : " << m_grille.convertirPixelsEnGrille(position.x, position.y).x
-                          << " / " << m_grille.convertirPixelsEnGrille(position.x, position.y).y << std::endl;
+                float coordCaseCliqueX = pixelEnGrille.x;
+                float coordCaseCliqueY = pixelEnGrille.y;
+
+                int caseCliqueX = m_grille.convertirPixelsEnGrille(position.x, position.y).x;
+                int caseCliqueY = m_grille.convertirPixelsEnGrille(position.x, position.y).y;
+
+                std::vector<std::vector<int>> grilleSolution = Logique::recupGrilleSolution();
+                int contenu = grilleSolution[caseCliqueY][caseCliqueX];
+
+                std::cout << "Coordonnees : " << coordCaseCliqueX << " / " << coordCaseCliqueY << std::endl
+                          << "Cases : " << caseCliqueX << " / " << caseCliqueY << std::endl
+                          << "Contenu : " << contenu << std::endl;
             }
 
             if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {

@@ -25,22 +25,29 @@ void Logique::recupGrilleSolution() {
     int grille[10][10];
     if (monFlux) {
         char carac;
+        int i, j = 0;
         while (monFlux.get(carac)) {
-            for (int j = 0; j < 10; ++j) {
-                for (int i = 0; i < 10; ++i) {
-                    if (carac == '0') {
-                        grille[j][i] = 0;
-                        std::cout << "zero" << std::endl;
-                    } else if (carac == '1') {
-                        grille[j][i] = 1;
-                        std::cout << "un" << std::endl;
-                    } else if (carac == '2') {
-                        grille[j][i] = 2;
-                        std::cout << "deux" << std::endl;
-                    }
-                }
+            if (carac == '0') {
+                std::cout << "zero" << std::endl;
+                grille[j][i] = 0;
+
+            } else if (carac == '1') {
+                std::cout << "un" << std::endl;
+                grille[j][i] = 1;
+
+            } else if (carac == '2') {
+                std::cout << "deux" << std::endl;
+                grille[j][i] = 2;
+
+            }
+            i++;
+            if (i > 9){
+                j++;
+                i = 0;
             }
         }
+
+
     } else {
         std::cout << "Une erreur s'est produite : impossible d'ouvrir le fichier" << std::endl;
     }

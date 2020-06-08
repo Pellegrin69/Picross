@@ -17,11 +17,13 @@ protected:
     int m_height;
 
 public:
-
     Fenetre(int width, int height);
 
-    void run();
+    void cliqueGauche();
 
+    void cliqueDroit();
+
+    void run();
 
 };
 

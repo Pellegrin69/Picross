@@ -27,29 +27,22 @@ std::vector<std::vector<int>> Logique::recupGrilleSolution() {
         char carac;
         int i = 0;
         int j = 0;
+        int valeurCase;
         std::vector<int> ligneSolution;
         while (monFlux.get(carac)) {
-            if (carac == '0') {
-                ligneSolution.push_back(0);
-                i++;
-                if (i > 9) {
-                    grilleSolution.push_back(ligneSolution);
-                    ligneSolution.clear();
-                    j++;
-                    i = 0;
-                }
-
-            } else if (carac == '1') {
-                ligneSolution.push_back(1);
-                i++;
-                if (i > 9) {
-                    grilleSolution.push_back(ligneSolution);
-                    ligneSolution.clear();
-                    j++;
-                    i = 0;
-                }
+            if (carac == '0') { valeurCase = 0; }
+            else if (carac == '1') { valeurCase = 1; }
+            else { continue; }
+            ligneSolution.push_back(valeurCase);
+            i++;
+            if (i > 9) {
+                grilleSolution.push_back(ligneSolution);
+                ligneSolution.clear();
+                j++;
+                i = 0;
             }
         }
+
     } else { std::cout << "Une erreur s'est produite : impossible d'ouvrir le fichier" << std::endl; }
 
     return grilleSolution;

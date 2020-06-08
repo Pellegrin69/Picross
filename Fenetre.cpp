@@ -10,35 +10,19 @@ Fenetre::Fenetre(int width, int height) : sf::RenderWindow(sf::VideoMode(width, 
                                           m_grille(10, 50), m_width(width), m_height(height) {
 }
 
-void Fenetre::cliqueGauche() {
+void Fenetre::clique() {
 
     sf::Vector2i caseClique;
+    int caseParCote = m_grille.getCaseParCote();
+    int tailleCase = m_grille.getTailleCoteCase();
 
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left) || sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
         sf::Vector2i position = sf::Mouse::getPosition(*this);
-
-        int caseCliqueX = m_grille.convertirPixelsEnGrille(position.x, position.y).x;
-        int caseCliqueY = m_grille.convertirPixelsEnGrille(position.x, position.y).y;
-        caseClique = sf::Vector2i(caseCliqueX, caseCliqueY);
-
-        //ajouter une methode dans grille
-
-        //auto pixelEnGrille = m_grille.convertirGrilleEnPixels(caseCliqueX,caseCliqueY);
-        //coordCaseCliqueX = pixelEnGrille.x;
-        //coordCaseCliqueY = pixelEnGrille.y;
-        //std::vector<std::vector<int>> grilleSolution = m_logique.recupGrilleSolution();
-        //contenu = grilleSolution[caseCliqueY][caseCliqueX];
-
-        //std::cout << "Coordonnees : " << coordCaseCliqueX << " / " << coordCaseCliqueY << std::endl
-        //          << "Cases : " << caseCliqueX << " / " << caseCliqueY << std::endl
-        //          << "Contenu : " << contenu << std::endl;
-        std::cout<<'1'<<std::endl;
-    }
-}
-
-void Fenetre::cliqueDroit() {
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-        std::cout << "neah" << std::endl;
+        if (position.x >= 0 && position.y >= 0 && position.x <= caseParCote * (tailleCase + 3) &&
+            position.y <= caseParCote * (tailleCase + 3)) {
+            caseClique = m_grille.convertirPixelsEnGrille(position.x, position.y);
+            m_grille.ajoutCaseClique(caseClique);
+        }
     }
 }
 
@@ -50,8 +34,7 @@ void Fenetre::run() {
             if (event.type == sf::Event::Closed) {
                 close();
             }
-            cliqueGauche();
-            cliqueDroit();
+            clique();
         }
         clear();
         draw(m_grille);

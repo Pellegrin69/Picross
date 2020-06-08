@@ -19,9 +19,7 @@ protected:
 public:
     Fenetre(int width, int height);
 
-    void cliqueGauche();
-
-    void cliqueDroit();
+    void clique();
 
     void run();
 

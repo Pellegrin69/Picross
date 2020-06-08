@@ -11,20 +11,17 @@
 
 class Grille : public sf::Drawable {
 
+protected:
+    void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
+    int m_caseParCote;
+    int m_tailleCoteCase;
+
 public:
     Grille(int caseParCote, int tailleCoteCase);
 
     sf::Vector2i convertirGrilleEnPixels(int caseX, int caseY) const;
 
     sf::Vector2i convertirPixelsEnGrille(int coordoneesX, int coordoneesY) const;
-
-protected:
-    void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
-
-    int m_caseParCote;
-
-    int m_tailleCoteCase;
-
 
 };
 
